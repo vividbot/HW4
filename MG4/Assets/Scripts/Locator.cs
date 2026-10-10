@@ -16,6 +16,8 @@ public class Locator : MonoBehaviour
     
     //Locator stuff
     public static Locator Instance {get; private set;}
+
+
     
     private void Awake()
     {
@@ -29,12 +31,14 @@ public class Locator : MonoBehaviour
     }
     public void ScorePoint(int x)
     {
-        
+        PointsChanged.Invoke(x);
+        Debug.Log("Points scored");
     }
     
     public void endGame()
     {
-        
+        gameOver.Invoke();
+        Debug.Log("Game Over");
     }
 
 }
